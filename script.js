@@ -26,9 +26,39 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     {
         question: "What type of language is javascript?",
-        choices: ["Object-Orineted","Object Based","Procedural","None of the Above"];
+        choices: ["Object-Orineted","Object Based","Procedural","None of the Above"],
         answer: "Object-Orinted"
     },
+    {
+        question: "Which of the following keyword is used to declare a variable in javascript?",
+        choices: ["var","let","Both of the above","None of the above"],
+        answer: "Both of the above"
+    },
+    {
+        question: "Which of the following method is used to access HTML elements in javascript?",
+        choices: ["getElementbyId()","getElementbyClassName()","Both of the above","None of the above"],
+        answer: "Both of the above"
+    },
+    {
+        question: "Upon encountering empty statements, what does the Javascript interpreter do?",
+        choices: ["Throws an error","Ignores the statement","Gives a warning","None of the above"],
+        answer: "Ignores the statement"
+    },
+    {
+        question: "How are constant variables declared in javascript?",
+        choices: ["const","var","let","constant"],
+        answer: "const"
+    },
+    {
+        question: "Which of the following is not javascript data type ?",
+        choices: ["Null","Undefined","Number","All of the above"],
+        answer: "All of the above"
+    },
+    {
+        question: "Which of the following scoping does javascript use ?",
+        choices: ["Sequential","Segmental","Lexical","Literal"],
+        answer: "Lexical"
+    }
     ]
     const score = 0;
     const correct = 4;
