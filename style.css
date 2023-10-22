@@ -128,3 +128,23 @@ button:hover{
     background-color: #56a5eb;
     color: white;
 }
+#choice-fieldset{
+    display: flex;
+    flex-direction: column;
+    vertical-align: middle;
+    border-color: yellowgreen;
+    box-shadow: 1px 1px white;
+}
+.choice-class{
+    vertical-align: middle;
+    height: 1rem;
+}
+.choice-div{
+    vertical-align: middle;
+    padding: 1rem;
+}
+.choice-label {
+    padding-left: 2rem;
+    margin-top: 0.2rem;
+    color: white;
+}

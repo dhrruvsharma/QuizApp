@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(choices);
     let questions = [{
         question: "Inside which HTML element we put the JavaScript ?",
-        choices:["<scrpit>","<javascript>","<js>","<scripting>"],
+        choices:["<script>","<javascript>","<js>","<scripting>"],
         answer: "<script>"
     },
     {
@@ -34,14 +34,29 @@ document.addEventListener('DOMContentLoaded', function () {
     const choiceElement = document.querySelector(".choice-container");
     const next = document.getElementById("next");
     const prev = document.getElementById("prev");
+    const choicesForm = document.getElementById("choices-form");
+    const choiceFieldset = document.getElementById("choice-fieldset");
     function displayQuestion() {
         const currentquestion = questions[currentQuestionIndex];
         question.innerText = currentquestion.question;
-        choiceElement.innerHTML = "";
+        choiceFieldset.innerHTML = "";
         currentquestion.choices.forEach((choice,index) => {
-            const choiceButton = document.createElement("button");
-            choiceButton.textContent = choice;
-            choiceElement.appendChild(choiceButton);
+            const div = document.createElement('div');
+            div.className = "choice-div";
+            const choiceInput = document.createElement('input');
+            choiceInput.type = "radio";
+            choiceInput.name = "choice";
+            choiceInput.id = `choice${index}`;
+            choiceInput.value = choice;
+            choiceInput.className = "choice-class";
+
+            const choiceLabel = document.createElement("label");
+            choiceLabel.setAttribute("for",`choice${index}`);
+            choiceLabel.className = "choice-label";
+            choiceLabel.textContent = choice;
+            choiceFieldset.append(div);
+            div.append(choiceInput);
+            div.append(choiceLabel);
         })
     }
     prev.addEventListener('click', () => {
