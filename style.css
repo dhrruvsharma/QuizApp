@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: #ecf5ff;
+    color: whitesmoke;
+    background-color: black;
+}
+h1,h2,h3,h4{
+    margin-bottom: 1rem;
+}
+h1 {
+    font-size: 6rem;
+    color: #56a5eb;
+    margin-bottom: 5rem;
+}
+#main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80vw;
+    margin: 0 auto;
+    padding: 2rem;
+}
+#gameContainer{
+    justify-content: flex-start;
+    border: 1px solid #56a5eb;
+    width: 50vw;
+    margin: 0 0;
+    flex-direction: column;
+    height: 100%;
+}
+.numberContainer{
+    width: 40%;
+    border: 1px solid #56a5eb;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.flex-column {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+label {
+    font-size: 2rem;
+    color: blue;
+    font-weight: 500;
+}
+input {
+    font-size: 2rem;
+    height: 2.3rem;
+}
+button {
+    font-size: 2rem;
+    text-decoration: none;
+    color:#56a5eb;
+    cursor: pointer;
+    border: .1rem solid #56a5eb;
+    margin:2rem;
+    background-color: white;
+    width: 20rem;
+    text-align: center;
+}
+button:hover{
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86,185,235,0.5);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
+#displayName {
+    font-size: 3.5rem;
+    padding-bottom: 4rem;
+    color:#56a5eb;
+    font-weight: 500;
+}
+#question {
+    font-size: 4rem;
+
+}
+.choice-container {
+    display: flex;
+    margin-bottom: .8rem;
+    width: 100%;
+    font-size: 2.3rem;
+    border: 0.1rem solid rgba(86,185,235,0.5);
+}
+.choice-container:hover{
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86,185,235,0.5);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
+.choice-prefix{
+    padding: 1.5rem 2rem;
+    background-color: #56a5eb;
+    color: white;
+}
+.choice-text{
+    padding: 1.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    width: 100%;
+}
+.buttons{
+    padding-top: 4rem;
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    gap: 50vw;
+}
+#prev,#next {
+    background-color: #56a5eb;
+    color: white;
+    font-weight: 550;
+    height: 3rem;
+}
+.numberContainer button {
+    width: 8rem;
+    height: 4rem;
+    font-size: 3rem;
+    margin-top: .5rem;
+    margin-right: 1rem;
+    background-color: #56a5eb;
+    color: white;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="home" class="flex-column flex-center">
+            <h1>Quick Quiz</h1>
+            <p>
+                <label for="name">Enter your name</label>
+            </p>
+            <p>
+                <input type="text" name="name" id="name" required autocomplete="off">
+            </p>
+            <a href="game.html">
+                <button id="send" onclick="sendName();">Play</button>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
