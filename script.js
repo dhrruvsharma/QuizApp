@@ -117,4 +117,38 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     })
     displayQuestion();
+    document.getElementById("q1").addEventListener('click',() => {
+        goToquestion(0);
+    })
+    document.getElementById("q2").addEventListener('click', () => {
+        goToquestion(1);
+    })
+    document.getElementById("q3").addEventListener('click', () => {
+        goToquestion(2);
+    })
+    document.getElementById("q4").addEventListener('click' ,() => {
+        goToquestion(3);
+    })
+    document.getElementById("q5").addEventListener('click', () => {
+        goToquestion(4);
+    })
+    document.getElementById("q6").addEventListener('click', () => {
+        goToquestion(5);
+    })
+    document.getElementById("q7").addEventListener('click', () => {
+        goToquestion(6);
+    })
+    document.getElementById("q8").addEventListener('click', () => {
+        goToquestion(7);
+    })
+    document.getElementById("q9").addEventListener('click', () => {
+        goToquestion(8);
+    })
+    document.getElementById("q10").addEventListener('click',() => {
+        goToquestion(9);
+    })
+    function goToquestion(questionNumber) {
+        currentQuestionIndex = questionNumber;
+        displayQuestion();
+    }
 })
