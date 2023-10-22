@@ -11,27 +11,18 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(choices);
     let questions = [{
         question: "Inside which HTML element we put the JavaScript ?",
-        choice1: "<scrpit>",
-        choice2: "<javascript>",
-        choice3: "<js>",
-        choice4: "<scripting>",
-        answer: 1
+        choices:["<scrpit>","<javascript>","<js>","<scripting>"],
+        answer: "<script>"
     },
     {
         question: "What is the correct syntax for referring to an external script?",
-        choice1: "<script href='xx.js'>",
-        choice2: "<script name='xx.js>'",
-        choice3: "<script src='xx.js'>",
-        choice4: "<script file='xx.js'",
-        answer: 3
+        choices: ["<script href='xx.js'>","<script name='xx.js>'","<script src='xx.js'>","<script file='xx.js'"],
+        answer: "<script src='xx.js'>"
     },
     {
         question: "How do you write Hello World in alert box?",
-        choice1: "msgBox('Hello World')",
-        choice2: "alertBox('Hello World')",
-        choice3: "msg('Hello World')",
-        choice4: "alert('Hello World')",
-        answer: 4
+        choices: ["msgBox('Hello World')","alertBox('Hello World')","msg('Hello World')","alert('Hello World')"],
+        answer: "alert('Hello World')"
     }
     ]
     const score = 0;
@@ -40,12 +31,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const question = document.getElementById("question");
     let currentQuestionIndex = 0;
+    const choiceElement = document.querySelector(".choice-container");
     const next = document.getElementById("next");
     const prev = document.getElementById("prev");
     function displayQuestion() {
         const currentquestion = questions[currentQuestionIndex];
         question.innerText = currentquestion.question;
-
+        choiceElement.innerHTML = "";
+        currentquestion.choices.forEach((choice,index) => {
+            const choiceButton = document.createElement("button");
+            choiceButton.textContent = choice;
+            choiceElement.appendChild(choiceButton);
+        })
     }
     prev.addEventListener('click', () => {
         if (currentQuestionIndex > 0){
