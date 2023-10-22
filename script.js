@@ -23,7 +23,12 @@ document.addEventListener('DOMContentLoaded', function () {
         question: "How do you write Hello World in alert box?",
         choices: ["msgBox('Hello World')","alertBox('Hello World')","msg('Hello World')","alert('Hello World')"],
         answer: "alert('Hello World')"
-    }
+    },
+    {
+        question: "What type of language is javascript?",
+        choices: ["Object-Orineted","Object Based","Procedural","None of the Above"];
+        answer: "Object-Orinted"
+    },
     ]
     const score = 0;
     const correct = 4;
@@ -50,6 +55,12 @@ document.addEventListener('DOMContentLoaded', function () {
             choiceInput.value = choice;
             choiceInput.className = "choice-class";
 
+            const storedChoice = localStorage.getItem(`selectedChoice_${currentQuestionIndex}`);
+            
+            if (storedChoice === choice){
+                choiceInput.checked = true;
+            }
+
             const choiceLabel = document.createElement("label");
             choiceLabel.setAttribute("for",`choice${index}`);
             choiceLabel.className = "choice-label";
@@ -57,6 +68,10 @@ document.addEventListener('DOMContentLoaded', function () {
             choiceFieldset.append(div);
             div.append(choiceInput);
             div.append(choiceLabel);
+
+            choiceInput.addEventListener("change" , () => {
+                localStorage.setItem(`selectedChoice_${currentQuestionIndex}`,choiceInput.value);
+            })
         })
     }
     prev.addEventListener('click', () => {
