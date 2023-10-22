@@ -39,4 +39,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const wrong = -1;
 
     const question = document.getElementById("question");
+    let currentQuestionIndex = 0;
+    const next = document.getElementById("next");
+    const prev = document.getElementById("prev");
+    function displayQuestion() {
+        const currentquestion = questions[currentQuestionIndex];
+        question.innerText = currentquestion.question;
+
+    }
+    prev.addEventListener('click', () => {
+        if (currentQuestionIndex > 0){
+            currentQuestionIndex--;
+            displayQuestion();
+        }
+    })
+    next.addEventListener('click', () => {
+        if (currentQuestionIndex < questions.length - 1){
+            currentQuestionIndex++;
+            displayQuestion();
+        }
+    })
+    displayQuestion();
 })

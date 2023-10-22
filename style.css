@@ -123,7 +123,7 @@ button:hover{
     background-color: #56a5eb;
     color: white;
     font-weight: 550;
-    height: 3rem;
+    height: auto;
 }
 .numberContainer button {
     width: 8rem;
