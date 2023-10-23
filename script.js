@@ -69,8 +69,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const correct = 4;
     const wrong = -1;
     function clearItems() {
-        for (let key in localStorage){
-            if(!key.startsWith("retain_")){
+        for (let key in localStorage) {
+            if (!key.startsWith("retain_")) {
                 localStorage.removeItem(key);
             }
         }
@@ -148,16 +148,14 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateStyle() {
         const but = document.querySelectorAll(".number-buttons");
         but.forEach((b, index) => {
-            const hasAttempted = localStorage.getItem(`selectedChoice_${index}`) !== null;
+            const hasAttempted = localStorage.getItem(`selectedChoice_${index}`);
+            // console.log(hasAttempted);
             const isMarked = localStorage.getItem(`reviewedQuestion_${index}`);
-            if (hasAttempted) {
-                b.style.backgroundColor = "green";
-            }
-            if (isMarked) {
+            if (isMarked){
                 b.style.backgroundColor = "red";
             }
-            else {
-                b.style.backgroundColor = "#56a5eb"
+            else if (hasAttempted !== null) {
+                b.style.backgroundColor = "green";
             }
         })
     }
