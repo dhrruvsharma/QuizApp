@@ -113,7 +113,7 @@ button:hover{
     display:flex;
     justify-content: space-between;
 }
-#prev,#next,#mark {
+#prev,#next,#mark,#submit {
     background-color: #56a5eb;
     color: white;
     font-weight: 550;

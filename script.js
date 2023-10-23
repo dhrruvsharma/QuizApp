@@ -177,4 +177,28 @@ document.addEventListener('DOMContentLoaded', function () {
     markButton.addEventListener("click", () => {
         mark(currentQuestionIndex);
     })
+    const submit = document.getElementById("submit");
+    let correctAns = 0;
+    let incorrectAns = 0;
+    function calculateScore() {
+        let scoredMarks = 0
+        for (let i = 0;i < questions.length;i++){
+            const storedChoice = localStorage.getItem(`selectedChoice_${i}`);
+            const correctAnswer = questions[i].answer;
+
+            if (storedChoice === correctAnswer){
+                scoredMarks += 4;
+                correctAns++;
+            }
+            else if (storedChoice !== null){
+                scoredMarks -= 1;
+                incorrectAns++;
+            }
+        }
+        return scoredMarks;
+    }
+    submit.addEventListener("click", () => {
+        const ans = calculateScore();
+        alert(`Your score is ${ans} points`);
+    })
 })
