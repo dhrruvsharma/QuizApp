@@ -151,11 +151,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const hasAttempted = localStorage.getItem(`selectedChoice_${index}`);
             // console.log(hasAttempted);
             const isMarked = localStorage.getItem(`reviewedQuestion_${index}`);
-            if (isMarked){
+            if (isMarked) {
                 b.style.backgroundColor = "red";
             }
             else if (hasAttempted !== null) {
                 b.style.backgroundColor = "green";
+            }
+            else {
+                b.style.backgroundColor = "#56a5eb";
             }
         })
     }
@@ -182,23 +185,57 @@ document.addEventListener('DOMContentLoaded', function () {
     let incorrectAns = 0;
     function calculateScore() {
         let scoredMarks = 0
-        for (let i = 0;i < questions.length;i++){
+        for (let i = 0; i < questions.length; i++) {
             const storedChoice = localStorage.getItem(`selectedChoice_${i}`);
             const correctAnswer = questions[i].answer;
 
-            if (storedChoice === correctAnswer){
+            if (storedChoice === correctAnswer) {
                 scoredMarks += 4;
                 correctAns++;
             }
-            else if (storedChoice !== null){
+            else if (storedChoice !== null) {
                 scoredMarks -= 1;
                 incorrectAns++;
             }
         }
         return scoredMarks;
     }
-    submit.addEventListener("click", () => {
+    function displayResult() {
         const ans = calculateScore();
-        alert(`Your score is ${ans} points`);
+        hide();
+        const result = document.getElementById("result");
+        const resultElement = document.getElementById("resultElement");
+        result.style.display = "flex";
+        resultElement.innerHTML = `Your score is ${ans} points`;
+    }
+    submit.addEventListener("click", () => {
+        displayResult();
     })
+    function hide() {
+        const main = document.getElementById("main");
+        const buttons = document.querySelector(".buttons");
+        main.style.display = "none";
+        buttons.style.display = "none";
+    }
+    const tryAgain = document.getElementById("tryAgain");
+    tryAgain.addEventListener("click", () => {
+        clearItems();
+        hideResult();
+        resetQuestions();
+    })
+    function hideResult() {
+        const result = document.getElementById("result");
+        result.style.display = "none";
+        const main = document.getElementById("main");
+        const buttons = document.querySelector(".buttons");
+        main.style.display = "flex";
+        buttons.style.display = "flex";
+    }
+    function resetQuestions() {
+        const choiceInputs = document.querySelectorAll(".choice-class");
+        choiceInputs.forEach((choiceInput) => {
+            choiceInput.checked = false;
+        })
+        updateStyle();
+    }
 })
