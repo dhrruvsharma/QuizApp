@@ -134,7 +134,20 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let i = 0;i < questions.length; i++){
         const button = document.createElement("button");
         button.textContent = `${i+1}`;
+        button.className = "number-buttons";
         button.setAttribute("data-question-number",i);
         navButtons.append(button);
     }
+    function updateStyle() {
+        const but = document.querySelectorAll(".number-buttons");
+        but.forEach((b , index) => {
+            const hasAttempted = localStorage.getItem(`selectedChoice_${index}`) !== null;
+            if (hasAttempted) {
+                b.style.backgroundColor = "green";
+            }
+        })
+    }
+    choicesForm.addEventListener("change", () => {
+        updateStyle();
+    })
 })

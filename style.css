@@ -148,3 +148,7 @@ button:hover{
     margin-top: 0.2rem;
     color: white;
 }
+.number-buttons {
+    background-color: #56a5eb;
+    border: none;
+}
