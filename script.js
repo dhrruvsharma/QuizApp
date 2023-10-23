@@ -142,12 +142,35 @@ document.addEventListener('DOMContentLoaded', function () {
         const but = document.querySelectorAll(".number-buttons");
         but.forEach((b , index) => {
             const hasAttempted = localStorage.getItem(`selectedChoice_${index}`) !== null;
+            const isMarked = localStorage.getItem(`reviewedQuestion_${index}`);
             if (hasAttempted) {
                 b.style.backgroundColor = "green";
+            }
+            if(isMarked){
+                b.style.backgroundColor = "red";
+            }
+            else {
+                b.style.backgroundColor = "#56a5eb"
             }
         })
     }
     choicesForm.addEventListener("change", () => {
         updateStyle();
+    })
+    function mark(questionNumber) {
+        const reviewKey = `reviewedQuestion_${questionNumber}`;
+        const isMarked = localStorage.getItem(reviewKey);
+        if (isMarked) {
+            localStorage.removeItem(reviewKey);
+        }
+        else {
+            localStorage.setItem(reviewKey,"true");
+        }
+        console.log(localStorage);
+        updateStyle();
+    }
+    const markButton  = document.getElementById("mark");
+    markButton.addEventListener("click", () => {
+        mark(currentQuestionIndex);
     })
 })

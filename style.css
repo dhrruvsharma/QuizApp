@@ -111,9 +111,8 @@ button:hover{
     width: 100%;
     display:flex;
     justify-content: space-between;
-    gap: 50vw;
 }
-#prev,#next {
+#prev,#next,#mark {
     background-color: #56a5eb;
     color: white;
     font-weight: 550;
