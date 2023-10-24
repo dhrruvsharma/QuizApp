@@ -222,6 +222,8 @@ document.addEventListener('DOMContentLoaded', function () {
         clearItems();
         hideResult();
         resetQuestions();
+        currentQuestionIndex = 0;
+        displayQuestion();
     })
     function hideResult() {
         const result = document.getElementById("result");
