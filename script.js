@@ -202,8 +202,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     function displayResult() {
         const ans = calculateScore();
-        timeRemaining = timeLimit;
         hide();
+        clearInterval(TimeInterval);
         const result = document.getElementById("result");
         const resultElement = document.getElementById("resultElement");
         result.style.display = "flex";
@@ -224,7 +224,9 @@ document.addEventListener('DOMContentLoaded', function () {
         hideResult();
         resetQuestions();
         currentQuestionIndex = 0;
+        timeRemaining = timeLimit;
         displayQuestion();
+        startTimer();
     })
     function hideResult() {
         const result = document.getElementById("result");
@@ -248,7 +250,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const timerElement = document.querySelector("#Timer");
         timerElement.innerHTML = `${Math.floor(timeRemaining/60)}: ${(timeRemaining%60).toString().padStart(2,'0')}`;
         if (timeRemaining <= 0){
-            clearInterval(TimeInterval);
             displayResult();
         }
         else {
