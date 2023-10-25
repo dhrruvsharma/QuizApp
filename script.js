@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
         question: "What type of language is javascript?",
         choices: ["Object-Orineted", "Object Based", "Procedural", "None of the Above"],
-        answer: "Object-Orinted"
+        answer: "Object-Oriented"
     },
     {
         question: "Which of the following keyword is used to declare a variable in javascript?",
