@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     {
         question: "What type of language is javascript?",
-        choices: ["Object-Orineted", "Object Based", "Procedural", "None of the Above"],
+        choices: ["Object-Oriented", "Object Based", "Procedural", "None of the Above"],
         answer: "Object-Oriented"
     },
     {
