@@ -1,27 +1,35 @@
-*{
+* {
     margin: 0;
     padding: 0;
     background-color: #ecf5ff;
     color: whitesmoke;
     background-color: black;
 }
-h1,h2,h3,h4{
+
+h1,
+h2,
+h3,
+h4 {
     margin-bottom: 1rem;
 }
+
 h1 {
     font-size: 6rem;
     color: #56a5eb;
     margin-bottom: 5rem;
 }
+
 h3 {
     font-size: 2rem;
     color: white;
 }
-#main{
+
+#main {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
+
 .container {
     width: 100vw;
     height: 100vh;
@@ -32,7 +40,8 @@ h3 {
     margin: 0 auto;
     padding: 2rem;
 }
-#gameContainer{
+
+#gameContainer {
     justify-content: flex-start;
     border: 1px solid #56a5eb;
     width: 50vw;
@@ -40,7 +49,8 @@ h3 {
     flex-direction: column;
     height: 100%;
 }
-.numberContainer{
+
+.numberContainer {
     width: 40%;
     border: 1px solid #56a5eb;
     display: flex;
@@ -48,50 +58,59 @@ h3 {
     flex-wrap: wrap;
     justify-content: flex-start;
 }
+
 .flex-column {
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
+
 .flex-center {
     justify-content: center;
     align-items: center;
 }
+
 label {
     font-size: 2rem;
     color: blue;
     font-weight: 500;
 }
+
 input {
     font-size: 2rem;
     height: 2.3rem;
 }
+
 button {
     font-size: 2rem;
     text-decoration: none;
-    color:#56a5eb;
+    color: #56a5eb;
     cursor: pointer;
     border: .1rem solid #56a5eb;
-    margin:2rem;
+    margin: 2rem;
     background-color: white;
     width: 20rem;
     text-align: center;
 }
-button:hover{
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(86,185,235,0.5);
+
+button:hover {
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
     transform: translateY(-0.1rem);
     transition: transform 150ms;
 }
+
 #displayName {
     font-size: 3.5rem;
     padding-bottom: 4rem;
-    color:#56a5eb;
+    color: #56a5eb;
     font-weight: 500;
 }
+
 #question {
     font-size: 4rem;
 
 }
+
 .choice-container {
     display: flex;
     margin-top: 1rem;
@@ -101,24 +120,31 @@ button:hover{
     /* border: 0.1rem solid rgba(86,185,235,0.5); */
     flex-direction: column;
 }
-.choice-container:hover{
+
+.choice-container:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(86,185,235,0.5);
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
     transform: translateY(-0.1rem);
     transition: transform 150ms;
 }
-.buttons{
+
+.buttons {
     padding-top: 4rem;
     width: 100%;
-    display:flex;
+    display: flex;
     justify-content: space-between;
 }
-#prev,#next,#mark,#submit {
+
+#prev,
+#next,
+#mark,
+#submit {
     background-color: #56a5eb;
     color: white;
     font-weight: 550;
     height: auto;
 }
+
 .numberContainer button {
     width: 8rem;
     height: 4rem;
@@ -128,47 +154,56 @@ button:hover{
     background-color: #56a5eb;
     color: white;
 }
-#choice-fieldset{
+
+#choice-fieldset {
     display: flex;
     flex-direction: column;
     vertical-align: middle;
     border-color: yellowgreen;
     box-shadow: 1px 1px white;
 }
-.choice-class{
+
+.choice-class {
     vertical-align: middle;
     height: 1rem;
 }
-.choice-div{
+
+.choice-div {
     vertical-align: middle;
     padding: 1rem;
 }
+
 .choice-label {
     padding-left: 2rem;
     margin-top: 0.2rem;
     color: white;
 }
+
 .number-buttons {
     background-color: #56a5eb;
     border: none;
 }
+
 #result {
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 #resultElement {
     font-size: 5rem;
     text-align: center;
     margin-top: 10%;
 }
+
 #container {
     display: flex;
     justify-content: space-between;
     vertical-align: middle;
 }
-#Timer{
+
+#Timer {
     font-size: 3rem;
-    color:#56a5eb;
+    color: #56a5eb;
 }
