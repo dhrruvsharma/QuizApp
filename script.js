@@ -1,70 +1,48 @@
-
 function sendName() {
     const inputValue = document.getElementById("name").value;
     localStorage.setItem("retain_username", inputValue);
     window.location.href = "game.html";
 }
 const nm = localStorage.getItem("retain_username");
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
+    let questions = [];
+    let c = [];
+    let a = [];
+    let q = [];
+    let questionssss = [];
     const displayName = document.getElementById("displayName");
     displayName.innerText = nm;
     window.addEventListener("beforeunload", () => {
         clearItems();
     })
+    await search();
+    console.log(nm);
     const navButtons = document.querySelector(".numberContainer");
     const choices = Array.from(document.getElementsByClassName("choice-text"));
     console.log(choices);
-    let questions = [{
-        question: "Inside which HTML element we put the JavaScript ?",
-        choices: ["<script>", "<javascript>", "<js>", "<scripting>"],
-        answer: "<script>"
-    },
-    {
-        question: "What is the correct syntax for referring to an external script?",
-        choices: ["<script href='xx.js'>", "<script name='xx.js>'", "<script src='xx.js'>", "<script file='xx.js'"],
-        answer: "<script src='xx.js'>"
-    },
-    {
-        question: "How do you write Hello World in alert box?",
-        choices: ["msgBox('Hello World')", "alertBox('Hello World')", "msg('Hello World')", "alert('Hello World')"],
-        answer: "alert('Hello World')"
-    },
-    {
-        question: "What type of language is javascript?",
-        choices: ["Object-Oriented", "Object Based", "Procedural", "None of the Above"],
-        answer: "Object-Oriented"
-    },
-    {
-        question: "Which of the following keyword is used to declare a variable in javascript?",
-        choices: ["var", "let", "Both of the above", "None of the above"],
-        answer: "Both of the above"
-    },
-    {
-        question: "Which of the following method is used to access HTML elements in javascript?",
-        choices: ["getElementbyId()", "getElementbyClassName()", "Both of the above", "None of the above"],
-        answer: "Both of the above"
-    },
-    {
-        question: "Upon encountering empty statements, what does the Javascript interpreter do?",
-        choices: ["Throws an error", "Ignores the statement", "Gives a warning", "None of the above"],
-        answer: "Ignores the statement"
-    },
-    {
-        question: "How are constant variables declared in javascript?",
-        choices: ["const", "var", "let", "constant"],
-        answer: "const"
-    },
-    {
-        question: "Which of the following is not javascript data type ?",
-        choices: ["Null", "Undefined", "Number", "All of the above"],
-        answer: "All of the above"
-    },
-    {
-        question: "Which of the following scoping does javascript use ?",
-        choices: ["Sequential", "Segmental", "Lexical", "Literal"],
-        answer: "Lexical"
+    async function search() {
+        url = `https://opentdb.com/api.php?amount=20&category=21&difficulty=medium&type=multiple`;
+        const response = await fetch(url);
+        const required = await response.json();
+        q = required.results;
+        for (let i = 0; i < q.length; i++) {
+            questionssss[i] = q[i].question;
+            c[i] = q[i].incorrect_answers;
+        }
+        for (let i = 0; i < q.length; i++) {
+            c[i].push(q[i].correct_answer);
+            a[i] = q[i].correct_answer;
+        }
+        for (let i = 0; i < q.length; i++) {
+            questions[i] =
+            {
+                question: questionssss[i],
+                choices: c[i],
+                answer: a[i]
+            }
+        }
+        console.log(questions);
     }
-    ]
     const score = 0;
     const correct = 4;
     const wrong = -1;
@@ -84,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const choiceFieldset = document.getElementById("choice-fieldset");
     function displayQuestion() {
         const currentquestion = questions[currentQuestionIndex];
-        question.innerText = currentquestion.question;
+        question.innerText = `Q${currentQuestionIndex + 1} ` + currentquestion.question;
         choiceFieldset.innerHTML = "";
         currentquestion.choices.forEach((choice, index) => {
             const div = document.createElement('div');
@@ -248,8 +226,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let timeRemaining = timeLimit;
     function updateTimer() {
         const timerElement = document.querySelector("#Timer");
-        timerElement.innerHTML = `${Math.floor(timeRemaining/60)}: ${(timeRemaining%60).toString().padStart(2,'0')}`;
-        if (timeRemaining <= 0){
+        timerElement.innerHTML = `${Math.floor(timeRemaining / 60)}: ${(timeRemaining % 60).toString().padStart(2, '0')}`;
+        if (timeRemaining <= 0) {
             displayResult();
         }
         else {
@@ -257,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
     function startTimer() {
-        TimeInterval = setInterval(updateTimer,1000)
+        TimeInterval = setInterval(updateTimer, 1000)
     }
     startTimer();
 })
